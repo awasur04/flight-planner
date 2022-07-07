@@ -39,7 +39,7 @@
             this.registerButton = new System.Windows.Forms.Button();
             this.backToLoginButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // passwordRegisterLabel
@@ -119,6 +119,7 @@
             this.backToLoginButton.TabIndex = 13;
             this.backToLoginButton.Text = "Back";
             this.backToLoginButton.UseVisualStyleBackColor = true;
+            this.backToLoginButton.Click += new System.EventHandler(this.backToLoginButton_Click);
             // 
             // label1
             // 
@@ -129,13 +130,13 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Confirm Password:";
             // 
-            // textBox1
+            // confirmPasswordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(77, 186);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(204, 20);
+            this.confirmPasswordTextBox.TabIndex = 14;
+            this.confirmPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // RegisterForm
             // 
@@ -143,7 +144,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 295);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.confirmPasswordTextBox);
             this.Controls.Add(this.backToLoginButton);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.emailRegisterLabel);
@@ -173,6 +174,6 @@
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button backToLoginButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
     }
 }
