@@ -19,5 +19,28 @@ namespace FlightPlanning.UI
             InitializeComponent();
         }
 
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            Database db = new Database();
+            CreationStatus status = db.CreateUser("test", "test", "test");
+            string message = "";
+
+            switch (status)
+            {
+                case CreationStatus.SUCCESS:
+                    message = "Account Created!";
+                    break;
+
+                case CreationStatus.FAILURE:
+                    message = "Unable to make account";
+                    break;
+
+                case CreationStatus.ACCT_ALREADY_EXISTS:
+                    message = "Email address is already assigned to an account, did you mean to login?";
+                    break;
+            }
+
+            MessageBox.Show(message);
+        }
     }
 }
