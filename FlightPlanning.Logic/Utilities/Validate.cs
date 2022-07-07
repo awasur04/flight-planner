@@ -22,5 +22,23 @@ namespace FlightPlanning.Logic
                 return false;
             }
         }
+
+        public bool Password(string password)
+        {
+            if (password.Length > 4)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool Name(string name)
+        {
+            if (name.Length > 1)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
