@@ -11,6 +11,7 @@ namespace FlightPlanning.Logic
 {
     public class Database
     {
+        public User loggedInUser { get; private set; }
         public CreationStatus CreateUser(string email, string password, string name)
         {
             try
@@ -50,6 +51,7 @@ namespace FlightPlanning.Logic
 
                 if (PasswordHash.VerifyInputPassword(password, currentUser.password))
                 {
+                    loggedInUser = currentUser;
                     return true;
                 }
 
