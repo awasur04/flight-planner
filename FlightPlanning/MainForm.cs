@@ -26,3 +26,11 @@ namespace FlightPlanning
             SetUpAccountGroup();
         }
 
+        public void SetUpAccountGroup()
+        {
+            welcomeLabel.Text = "Welcome, " + currentUser.name + "!";
+            emailLabel.Text = "Email: " + currentUser.email;
+            milesLabel.Text = "Miles: " + currentUser.miles;
+            loyaltyLabel.Text = "Loyalty Level: " + currentUser.GetLoyaltyLevel();
+        }
+
