@@ -116,7 +116,29 @@ namespace FlightPlanning.Database
             }
         }
 
+        public bool RemoveUser(User user)
+        {
+            try
             {
+                string removeUserSql = "DELETE FROM Users WHERE id=@id";
+
+                SqlCommand command = new SqlCommand(removeUserSql, connection);
+                command.Parameters.AddWithValue("@id", user.id);
+
+                connection.Open();
+                int updateRows = command.ExecuteNonQuery();
+                connection.Close();
+
+                if (updateRows == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error removing user: " + e.Message);
+                return false;
             }
         }
     }
