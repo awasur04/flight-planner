@@ -48,8 +48,7 @@ namespace FlightPlanning.UI
                 showPasswordImage.Image = Image.FromFile(Application.StartupPath + "\\resources\\images\\password-hide.png");
             }
         }
-        #endregion
-
+        
         private void loginButton_Click(object sender, EventArgs e)
         {
             if(!validate.Email(emailTextBox.Text.ToString().Trim()))
@@ -63,14 +62,24 @@ namespace FlightPlanning.UI
 
             if(db.Login(emailTextBox.Text, passwordTextBox.Text))
             {
-                MessageBox.Show("Logged in");
+                LoginConfirm();
             }
             else
             {
-                MessageBox.Show("Invalid login");
-            }
-
-            
+                MessageBox.Show("Invalid login information.");
+            }  
         }
+        #endregion
+
+        #region Actions
+        private void LoginConfirm()
+        {
+            MainForm mainForm = new MainForm(db);
+            this.Hide();
+            mainForm.FormClosed += (s, args) => this.Close();
+            mainForm.ShowDialog();
+        }
+
+        #endregion
     }
 }
