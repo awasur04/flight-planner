@@ -74,7 +74,7 @@ namespace FlightPlanning.Database
                 command.Parameters.AddWithValue("@password", password);
 
                 connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
                 connection.Close();
 
                 return (new User(email, password, name, 0, 0), false);
