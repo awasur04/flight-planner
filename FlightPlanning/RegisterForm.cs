@@ -82,13 +82,13 @@ namespace FlightPlanning.UI
             DialogResult dg = MessageBox.Show(message);
             if (dg == DialogResult.OK && status == CreationStatus.SUCCESS)
             {
-                this.Hide();
+                this.Close();
             }
         }
 
         private void backToLoginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
     }
 }
