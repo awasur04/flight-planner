@@ -48,7 +48,7 @@ namespace FlightPlanning.Logic
                     return false;
                 }
 
-                if (password == currentUser.password)
+                if (PasswordHash.VerifyInputPassword(password, currentUser.password))
                 {
                     return true;
                 }

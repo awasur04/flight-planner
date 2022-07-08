@@ -29,5 +29,24 @@ namespace FlightPlanning.Logic
             return hashedPassword;
         }
 
+        public static bool VerifyInputPassword(string inputPassword, string hashedPassword)
+        {
+            byte[] hashBytes = Convert.FromBase64String(hashedPassword);
+
+            byte[] salt = new byte[SALT_SIZE];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(inputPassword, salt, SALT_ITERATIONS);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (hashBytes[i+16] != hash[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
