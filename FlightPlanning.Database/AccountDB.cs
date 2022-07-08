@@ -13,6 +13,8 @@ namespace FlightPlanning.Database
 {
     public class AccountDB
     {
+        private readonly User ERROR_USER = new User("ERROR", "ERROR", "ERROR", -999, -999);
+
         protected SqlConnection connection;
         protected string connectionString;
 
@@ -36,7 +38,7 @@ namespace FlightPlanning.Database
                     if (!reader.Read())
                     {
                         connection.Close();
-                        return new User("ERROR", "ERROR", "ERROR", -999);
+                        return ERROR_USER;
                     }
 
                     User newUser = new User(reader["email"].ToString(), reader["password"].ToString(), reader["name"].ToString(), (int)reader["id"]);
@@ -46,10 +48,10 @@ namespace FlightPlanning.Database
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error finding user: " + e.Message);
             }
 
-            return new User("ERROR", "ERROR", "ERROR", -999);
+            return ERROR_USER;
         }
 
         public (User, bool) CreateUser(string email, string password, string name)
@@ -60,7 +62,7 @@ namespace FlightPlanning.Database
                 User userCheck = UserLogin(email);
                 if (userCheck.name != "ERROR")
                 {
-                    return (new User("ERROR", "ERROR", "ERROR", -999), true);
+                    return (ERROR_USER, true);
                 }
 
 
@@ -75,11 +77,15 @@ namespace FlightPlanning.Database
                 int rowsAffected = command.ExecuteNonQuery();
                 connection.Close();
 
-                return (new User(email, password, name, 0), false);
+                return (new User(email, password, name, 0, 0), false);
         }
-            catch
+            catch(Exception e)
             {
-                return (new User("ERROR", "ERROR", "ERROR", -999), false);
+                Console.WriteLine("Error creating user: " + e.Message);
+                return (ERROR_USER, false);
+            }
+        }
+            {
             }
         }
     }
