@@ -16,7 +16,7 @@ namespace FlightPlanning.Logic
             try
             {
                 AccountDB acctDB = new AccountDB();
-                (User, bool) newUser = acctDB.CreateUser(email, password, name);
+                (User, bool) newUser = acctDB.CreateUser(email, PasswordHash.GetHashedPassword(password), name);
 
                 if (newUser.Item2)
                 {
