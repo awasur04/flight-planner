@@ -85,6 +85,37 @@ namespace FlightPlanning.Database
                 return (ERROR_USER, false);
             }
         }
+
+        public bool UpdateUser(User user)
+        {
+            try
+            {
+                string updateUserSql = "UPDATE Users SET email=@email, name=@name, password=@password, miles=@miles WHERE id=@id";
+
+                SqlCommand command = new SqlCommand(updateUserSql, connection);
+                command.Parameters.AddWithValue("@email", user.email);
+                command.Parameters.AddWithValue("@name", user.name);
+                command.Parameters.AddWithValue("@password", user.password);
+                command.Parameters.AddWithValue("@miles", user.miles);
+                command.Parameters.AddWithValue("@id", user.id);
+
+                connection.Open();
+                int updateRows = command.ExecuteNonQuery();
+                connection.Close();
+
+                if (updateRows == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error updating user: " + e.Message);
+                return false;
+            }
+        }
+
             {
             }
         }
