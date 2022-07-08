@@ -41,7 +41,7 @@ namespace FlightPlanning.Database
                         return ERROR_USER;
                     }
 
-                    User newUser = new User(reader["email"].ToString(), reader["password"].ToString(), reader["name"].ToString(), (int)reader["id"]);
+                    User newUser = new User(reader["email"].ToString(), reader["password"].ToString(), reader["name"].ToString(), (int)reader["id"], (int)reader["miles"]);
                     connection.Close();
                     return newUser;
                 }
