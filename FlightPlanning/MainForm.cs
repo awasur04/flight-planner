@@ -17,6 +17,7 @@ namespace FlightPlanning
     {
         private Database db;
         private User currentUser;
+        private UtilityForm uf;
         public MainForm(Database database)
         {
             InitializeComponent();
@@ -34,3 +35,27 @@ namespace FlightPlanning
             loyaltyLabel.Text = "Loyalty Level: " + currentUser.GetLoyaltyLevel();
         }
 
+        private void changeEmailButton_Click(object sender, EventArgs e)
+        {
+            uf = new UtilityForm();
+            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CHANGE_EMAIL);
+        }
+
+        private void passwordButton_Click(object sender, EventArgs e)
+        {
+            uf = new UtilityForm();
+            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CHANGE_PASSWORD);
+        }
+
+        private void closeAcctButton_Click(object sender, EventArgs e)
+        {
+            uf = new UtilityForm();
+            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CLOSE_ACCOUNT);
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
