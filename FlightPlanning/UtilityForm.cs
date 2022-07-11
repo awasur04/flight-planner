@@ -28,6 +28,55 @@ namespace FlightPlanning.UI
         {
             this.Close();
         }
+        //Change email
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+
+            if (PasswordHash.VerifyInputPassword(passwordTextBox.Text, currentUser.password))
+            {
+                if (InputValidation.Email(emailTextBox1.Text))
+                {
+                    if (emailTextBox1.Text == emailTextBox2.Text)
+                    {
+                        emailTextBox1.ForeColor = Color.Black;
+                        emailTextBox2.ForeColor = Color.Black;
+                        currentUser.email = emailTextBox1.Text;
+
+                        DialogResult dg = MessageBox.Show("Email changed successfully");
+
+                        if (dg == DialogResult.OK)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        message = "Email address doesnt match";
+                    }  
+                }
+                else
+                {
+                    message = "Please enter a valid email address.";
+                }
+            }
+            else
+            {
+                message = "Incorrect password";
+            }
+
+            if (message != "")
+            {
+                if (message.Contains("address"))
+                {
+                    emailTextBox1.ForeColor = Color.Red;
+                    emailTextBox2.ForeColor = Color.Red;
+                }
+
+                MessageBox.Show(message);
+            }
+        }
+
         private void passwordConfirmButton_Click(object sender, EventArgs e)
         {
             string message = "";
