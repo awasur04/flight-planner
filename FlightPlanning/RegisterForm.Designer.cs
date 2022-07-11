@@ -65,7 +65,7 @@
             this.passwordRegisterTextBox.Location = new System.Drawing.Point(77, 147);
             this.passwordRegisterTextBox.Name = "passwordRegisterTextBox";
             this.passwordRegisterTextBox.Size = new System.Drawing.Size(204, 20);
-            this.passwordRegisterTextBox.TabIndex = 6;
+            this.passwordRegisterTextBox.TabIndex = 3;
             this.passwordRegisterTextBox.UseSystemPasswordChar = true;
             // 
             // nameRegisterTextBox
@@ -73,7 +73,7 @@
             this.nameRegisterTextBox.Location = new System.Drawing.Point(78, 69);
             this.nameRegisterTextBox.Name = "nameRegisterTextBox";
             this.nameRegisterTextBox.Size = new System.Drawing.Size(204, 20);
-            this.nameRegisterTextBox.TabIndex = 5;
+            this.nameRegisterTextBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -99,14 +99,14 @@
             this.emailRegisterTextBox1.Location = new System.Drawing.Point(78, 108);
             this.emailRegisterTextBox1.Name = "emailRegisterTextBox1";
             this.emailRegisterTextBox1.Size = new System.Drawing.Size(204, 20);
-            this.emailRegisterTextBox1.TabIndex = 10;
+            this.emailRegisterTextBox1.TabIndex = 2;
             // 
             // registerButton
             // 
             this.registerButton.Location = new System.Drawing.Point(142, 231);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 23);
-            this.registerButton.TabIndex = 12;
+            this.registerButton.TabIndex = 5;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -116,7 +116,7 @@
             this.backToLoginButton.Location = new System.Drawing.Point(142, 260);
             this.backToLoginButton.Name = "backToLoginButton";
             this.backToLoginButton.Size = new System.Drawing.Size(75, 23);
-            this.backToLoginButton.TabIndex = 13;
+            this.backToLoginButton.TabIndex = 6;
             this.backToLoginButton.Text = "Back";
             this.backToLoginButton.UseVisualStyleBackColor = true;
             this.backToLoginButton.Click += new System.EventHandler(this.backToLoginButton_Click);
@@ -135,7 +135,7 @@
             this.confirmPasswordTextBox.Location = new System.Drawing.Point(77, 186);
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(204, 20);
-            this.confirmPasswordTextBox.TabIndex = 14;
+            this.confirmPasswordTextBox.TabIndex = 4;
             this.confirmPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // RegisterForm

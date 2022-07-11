@@ -1,4 +1,4 @@
-﻿namespace FlightPlanning
+﻿namespace FlightPlanning.UI
 {
     partial class UtilityForm
     {
@@ -51,7 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.closeAccountPasswordTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cancelButton3 = new System.Windows.Forms.Button();
             this.closeAccountButton = new System.Windows.Forms.Button();
@@ -82,7 +82,8 @@
             this.passwordTextBox.Location = new System.Drawing.Point(97, 183);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordTextBox.TabIndex = 7;
+            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -111,13 +112,14 @@
             this.confirmButton.TabIndex = 4;
             this.confirmButton.Text = "Confirm";
             this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // emailTextBox2
             // 
             this.emailTextBox2.Location = new System.Drawing.Point(97, 125);
             this.emailTextBox2.Name = "emailTextBox2";
             this.emailTextBox2.Size = new System.Drawing.Size(178, 20);
-            this.emailTextBox2.TabIndex = 3;
+            this.emailTextBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -166,7 +168,8 @@
             this.currentPasswordTextBox.Location = new System.Drawing.Point(97, 183);
             this.currentPasswordTextBox.Name = "currentPasswordTextBox";
             this.currentPasswordTextBox.Size = new System.Drawing.Size(178, 20);
-            this.currentPasswordTextBox.TabIndex = 7;
+            this.currentPasswordTextBox.TabIndex = 3;
+            this.currentPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -195,13 +198,14 @@
             this.passwordConfirmButton.TabIndex = 4;
             this.passwordConfirmButton.Text = "Confirm";
             this.passwordConfirmButton.UseVisualStyleBackColor = true;
+            this.passwordConfirmButton.Click += new System.EventHandler(this.passwordConfirmButton_Click);
             // 
             // newPasswordTextBox2
             // 
             this.newPasswordTextBox2.Location = new System.Drawing.Point(97, 125);
             this.newPasswordTextBox2.Name = "newPasswordTextBox2";
             this.newPasswordTextBox2.Size = new System.Drawing.Size(178, 20);
-            this.newPasswordTextBox2.TabIndex = 3;
+            this.newPasswordTextBox2.TabIndex = 2;
             // 
             // label5
             // 
@@ -233,7 +237,7 @@
             this.closeAccountBox.Controls.Add(this.label10);
             this.closeAccountBox.Controls.Add(this.label9);
             this.closeAccountBox.Controls.Add(this.label8);
-            this.closeAccountBox.Controls.Add(this.textBox1);
+            this.closeAccountBox.Controls.Add(this.closeAccountPasswordTextBox);
             this.closeAccountBox.Controls.Add(this.label7);
             this.closeAccountBox.Controls.Add(this.cancelButton3);
             this.closeAccountBox.Controls.Add(this.closeAccountButton);
@@ -272,12 +276,13 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Are you sure you want to DELETE your account?";
             // 
-            // textBox1
+            // closeAccountPasswordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
-            this.textBox1.TabIndex = 7;
+            this.closeAccountPasswordTextBox.Location = new System.Drawing.Point(97, 183);
+            this.closeAccountPasswordTextBox.Name = "closeAccountPasswordTextBox";
+            this.closeAccountPasswordTextBox.Size = new System.Drawing.Size(178, 20);
+            this.closeAccountPasswordTextBox.TabIndex = 1;
+            this.closeAccountPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -293,7 +298,7 @@
             this.cancelButton3.Location = new System.Drawing.Point(142, 238);
             this.cancelButton3.Name = "cancelButton3";
             this.cancelButton3.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton3.TabIndex = 5;
+            this.cancelButton3.TabIndex = 3;
             this.cancelButton3.Text = "Cancel";
             this.cancelButton3.UseVisualStyleBackColor = true;
             this.cancelButton3.Click += new System.EventHandler(this.cancelButton_Click);
@@ -303,15 +308,16 @@
             this.closeAccountButton.Location = new System.Drawing.Point(142, 209);
             this.closeAccountButton.Name = "closeAccountButton";
             this.closeAccountButton.Size = new System.Drawing.Size(75, 23);
-            this.closeAccountButton.TabIndex = 4;
+            this.closeAccountButton.TabIndex = 2;
             this.closeAccountButton.Text = "Confirm";
             this.closeAccountButton.UseVisualStyleBackColor = true;
+            this.closeAccountButton.Click += new System.EventHandler(this.closeAccountButton_Click);
             // 
             // UtilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 337);
+            this.ClientSize = new System.Drawing.Size(418, 337);
             this.Controls.Add(this.closeAccountBox);
             this.Controls.Add(this.changePasswordBox);
             this.Controls.Add(this.emailChangeBox);
@@ -353,7 +359,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox closeAccountPasswordTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button cancelButton3;
         private System.Windows.Forms.Button closeAccountButton;

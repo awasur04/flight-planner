@@ -91,7 +91,7 @@
             this.loginButton.Location = new System.Drawing.Point(67, 340);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(104, 23);
-            this.loginButton.TabIndex = 5;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -101,7 +101,7 @@
             this.registerButton.Location = new System.Drawing.Point(172, 340);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(104, 23);
-            this.registerButton.TabIndex = 6;
+            this.registerButton.TabIndex = 4;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
