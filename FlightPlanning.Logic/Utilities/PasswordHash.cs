@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace FlightPlanning.Logic
 {
-    internal class PasswordHash
+    public class PasswordHash
     {
         const int SALT_SIZE = 16;
         const int SALT_ITERATIONS = 10000;
