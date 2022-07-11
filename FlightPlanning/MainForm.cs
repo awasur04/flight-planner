@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using FlightPlanning.Models;
 using FlightPlanning.Logic;
 
-namespace FlightPlanning
+namespace FlightPlanning.UI
 {
     public partial class MainForm : Form
     {
@@ -38,19 +38,19 @@ namespace FlightPlanning
         private void changeEmailButton_Click(object sender, EventArgs e)
         {
             uf = new UtilityForm();
-            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CHANGE_EMAIL);
+            currentUser = uf.CompleteOperation(currentUser, db, this, UtilityOption.CHANGE_EMAIL);
         }
 
         private void passwordButton_Click(object sender, EventArgs e)
         {
             uf = new UtilityForm();
-            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CHANGE_PASSWORD);
+            currentUser = uf.CompleteOperation(currentUser, db, this, UtilityOption.CHANGE_PASSWORD);
         }
 
         private void closeAcctButton_Click(object sender, EventArgs e)
         {
             uf = new UtilityForm();
-            currentUser = uf.CompleteOperation(currentUser, UtilityOption.CLOSE_ACCOUNT);
+            currentUser = uf.CompleteOperation(currentUser, db, this, UtilityOption.CLOSE_ACCOUNT);
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
