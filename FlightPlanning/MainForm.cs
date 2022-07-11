@@ -55,7 +55,24 @@ namespace FlightPlanning.UI
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            bool logOutComplete = db.UpdateUser(currentUser);
+
+            if (logOutComplete)
+            {
+                LoginForm loginForm = new LoginForm();
+                this.Hide();
+                loginForm.FormClosed += (s, args) => this.Close();
+                loginForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Failed to log out, please try again.");
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.UpdateUser(currentUser);
         }
     }
 }
