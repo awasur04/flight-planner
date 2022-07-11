@@ -28,6 +28,30 @@ namespace FlightPlanning.UI
         {
             this.Close();
         }
+
+        private void closeAccountButton_Click(object sender, EventArgs e)
+        {
+            if (PasswordHash.VerifyInputPassword(closeAccountPasswordTextBox.Text, currentUser.password))
+            {
+                db.DeleteUser(currentUser);
+
+                DialogResult dg = MessageBox.Show("Account deleted, returning to log in screen.");
+
+                if (dg == DialogResult.OK)
+                {
+                    LoginForm loginForm = new LoginForm();
+                    this.Hide();
+                    mainForm.Close();
+                    loginForm.FormClosed += (s, args) => this.Close();
+                    loginForm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Password is incorrect.");
+            }
+        }
+
         //Change email
         private void confirmButton_Click(object sender, EventArgs e)
         {
