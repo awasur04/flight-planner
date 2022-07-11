@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FlightPlanning.Logic
 {
-    public class Validate
+    public static class InputValidation
     {
-        public bool Email(string email)
+        public static bool Email(string email)
         {
             EmailAddressAttribute eAddr = new EmailAddressAttribute();
 
@@ -23,7 +23,7 @@ namespace FlightPlanning.Logic
             }
         }
 
-        public bool Password(string password)
+        public static bool Password(string password)
         {
             if (password.Length > 4)
             {
@@ -32,7 +32,7 @@ namespace FlightPlanning.Logic
             return false;
         }
 
-        public bool Name(string name)
+        public static bool Name(string name)
         {
             if (name.Length > 1)
             {

@@ -16,13 +16,11 @@ namespace FlightPlanning.UI
     public partial class LoginForm : Form
     {
         private bool showPassword = false;
-        private Validate validate;
         private Database db;
         
         public LoginForm()
         {
             InitializeComponent();
-            validate = new Validate();
             db = new Database();
         }
 
@@ -51,7 +49,7 @@ namespace FlightPlanning.UI
         
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if(!validate.Email(emailTextBox.Text.ToString().Trim()))
+            if(!InputValidation.Email(emailTextBox.Text.ToString().Trim()))
             {
                 emailTextBox.ForeColor = Color.Red;
                 MessageBox.Show("Invalid email address");

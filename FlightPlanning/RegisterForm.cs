@@ -15,14 +15,12 @@ namespace FlightPlanning.UI
     public partial class RegisterForm : Form
     {
         private Database db;
-        private Validate validate;
         private TextBox[] registerTextBoxes;
         public RegisterForm()
         {
             InitializeComponent();
 
             db = new Database();
-            validate = new Validate();
 
             registerTextBoxes = new TextBox[] { emailRegisterTextBox1, passwordRegisterTextBox, nameRegisterTextBox };
         }
@@ -35,7 +33,7 @@ namespace FlightPlanning.UI
             string name = nameRegisterTextBox.Text.ToString();
 
 
-            bool[] validInput = new bool[] { validate.Email(email), validate.Password(password), validate.Name(name) };
+            bool[] validInput = new bool[] { InputValidation.Email(email), InputValidation.Password(password), InputValidation.Name(name) };
 
             for (int i = 0; i < registerTextBoxes.Length; i++)
             {
