@@ -11,10 +11,13 @@ using System.Windows.Forms;
 using FlightPlanning.Models;
 using FlightPlanning.Logic;
 
-namespace FlightPlanning
+namespace FlightPlanning.UI
 {
     public partial class UtilityForm : Form
     {
+        User currentUser;
+        Database db;
+        MainForm mainForm;
         public UtilityForm()
         {
             InitializeComponent();
@@ -29,9 +32,12 @@ namespace FlightPlanning
 
 
         #region Operations
-        public User CompleteOperation(User user, UtilityOption desiredOption)
+        public User CompleteOperation(User user, Database db, MainForm mf, UtilityOption desiredOption)
         {
-            User currentUser = user;
+            currentUser = user;
+            this.db = db;
+            mainForm = mf;
+
             switch (desiredOption)
             {
                 case UtilityOption.CHANGE_EMAIL:
@@ -56,7 +62,7 @@ namespace FlightPlanning
             closeAccountBox.Visible = closeAccount;
             this.ShowDialog();
         }
-        #endregion
 
+        #endregion
     }
 }
