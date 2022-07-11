@@ -51,5 +51,19 @@ namespace FlightPlanning.Logic
                 return false;
             }
         }
+
+        public bool UpdateUser(User updatedUser)
+        {
+            try
+            {
+                return acctDB.UpdateUser(updatedUser);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error updating user: " + e.Message);
+                return false;
+            }
+        }
+
     }
 }
