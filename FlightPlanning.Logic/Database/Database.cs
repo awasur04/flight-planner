@@ -65,5 +65,17 @@ namespace FlightPlanning.Logic
             }
         }
 
+        public bool DeleteUser(User userToDelete)
+        {
+            try
+            {
+                return acctDB.RemoveUser(userToDelete);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error deleting user: " + e.Message);
+                return false;
+            }
+        }
     }
 }
