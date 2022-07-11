@@ -28,6 +28,44 @@ namespace FlightPlanning.UI
         {
             this.Close();
         }
+        private void passwordConfirmButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            if (PasswordHash.VerifyInputPassword(currentPasswordTextBox.Text, currentUser.password))
+            {
+                if (newPasswordTextBox1.Text == newPasswordTextBox2.Text)
+                {
+                    if (InputValidation.Password(newPasswordTextBox1.Text))
+                    {
+                        currentUser.password = PasswordHash.GetHashedPassword(newPasswordTextBox1.Text);
+
+                        DialogResult dg = MessageBox.Show("Password changed successfully");
+
+                        if (dg == DialogResult.OK)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        message = "Password does not meet requirements";
+                    }
+                }
+                else
+                {
+                    message = "Passwords do not match";
+                }
+            }
+            else
+            {
+                message = "Incorrect password";
+            }
+
+            if (message != "")
+            {
+                MessageBox.Show(message);
+            }
+        }
         #endregion
 
 
