@@ -54,7 +54,7 @@ namespace FlightPlanning.Database
             return ERROR_USER;
         }
 
-        public (User, bool) CreateUser(string email, string password, string name)
+        public CreationStatus CreateUser(string email, string password, string name)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace FlightPlanning.Database
                 User userCheck = UserLogin(email);
                 if (userCheck.name != "ERROR")
                 {
-                    return (ERROR_USER, true);
+                    return CreationStatus.ACCT_ALREADY_EXISTS;
                 }
 
 
@@ -77,12 +77,12 @@ namespace FlightPlanning.Database
                 command.ExecuteNonQuery();
                 connection.Close();
 
-                return (new User(email, password, name, 0, 0), false);
+                return CreationStatus.SUCCESS;
         }
             catch(Exception e)
             {
                 Console.WriteLine("Error creating user: " + e.Message);
-                return (ERROR_USER, false);
+                return CreationStatus.FAILURE;
             }
         }
 

@@ -12,36 +12,24 @@ namespace FlightPlanning.Logic
     public class Database
     {
         public User loggedInUser { get; private set; }
+        public AccountDB acctDB = new AccountDB();
         public CreationStatus CreateUser(string email, string password, string name)
         {
             try
             {
-                AccountDB acctDB = new AccountDB();
-                (User, bool) newUser = acctDB.CreateUser(email, PasswordHash.GetHashedPassword(password), name);
-
-                if (newUser.Item2)
-                {
-                    return CreationStatus.ACCT_ALREADY_EXISTS;
-                }
-
-                if (newUser.Item1.name != "ERROR")
-                {
-                    return CreationStatus.SUCCESS;
-                }
+                 return acctDB.CreateUser(email, PasswordHash.GetHashedPassword(password), name);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                return CreationStatus.FAILURE;
             }
-
-            return CreationStatus.FAILURE;
         }
 
         public bool Login(string email, string password)
         {
             try
             {
-                AccountDB acctDB = new AccountDB();
                 User currentUser = acctDB.UserLogin(email);
                 
                 if (currentUser.name == "ERROR")
