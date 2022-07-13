@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Aircraft.cs" />
+    <Compile Include="Classes\Flight.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Enums\CreationStatus.cs" />
     <Compile Include="Enums\UtilityOption.cs" />
