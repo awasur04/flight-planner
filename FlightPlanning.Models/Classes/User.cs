@@ -8,26 +8,26 @@ namespace FlightPlanning.Models
 {
     public class User
     {
-        public string email { get; set; }
-        public string password { get; set; }
-        public string name { get; set; }
-        public int id { get; set; }
-        public int miles { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public int Id { get; set; }
+        public int Miles { get; set; }
 
         public User(string email, string password, string name, int id, int miles)
         {
-            this.email = email;
-            this.password = password;
-            this.name = name;
-            this.id = id;
-            this.miles = miles;
+            this.Email = email;
+            this.Password = password;
+            this.Name = name;
+            this.Id = id;
+            this.Miles = miles;
         }  
         
         public string GetLoyaltyLevel()
         {
             //Silver, Gold, Platinum, Executive
 
-            switch(miles)
+            switch(Miles)
             {
                 case int n when (n < 3000):
                     return "Silver";

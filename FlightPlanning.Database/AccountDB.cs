@@ -60,7 +60,7 @@ namespace FlightPlanning.Database
             {
                 //CHeck if user account already exists
                 User userCheck = UserLogin(email);
-                if (userCheck.name != "ERROR")
+                if (userCheck.Name != "ERROR")
                 {
                     return CreationStatus.ACCT_ALREADY_EXISTS;
                 }
@@ -93,11 +93,11 @@ namespace FlightPlanning.Database
                 string updateUserSql = "UPDATE Users SET email=@email, name=@name, password=@password, miles=@miles WHERE id=@id";
 
                 SqlCommand command = new SqlCommand(updateUserSql, connection);
-                command.Parameters.AddWithValue("@email", user.email);
-                command.Parameters.AddWithValue("@name", user.name);
-                command.Parameters.AddWithValue("@password", user.password);
-                command.Parameters.AddWithValue("@miles", user.miles);
-                command.Parameters.AddWithValue("@id", user.id);
+                command.Parameters.AddWithValue("@email", user.Email);
+                command.Parameters.AddWithValue("@name", user.Name);
+                command.Parameters.AddWithValue("@password", user.Password);
+                command.Parameters.AddWithValue("@miles", user.Miles);
+                command.Parameters.AddWithValue("@id", user.Id);
 
                 connection.Open();
                 int updateRows = command.ExecuteNonQuery();
@@ -123,7 +123,7 @@ namespace FlightPlanning.Database
                 string removeUserSql = "DELETE FROM Users WHERE id=@id";
 
                 SqlCommand command = new SqlCommand(removeUserSql, connection);
-                command.Parameters.AddWithValue("@id", user.id);
+                command.Parameters.AddWithValue("@id", user.Id);
 
                 connection.Open();
                 int updateRows = command.ExecuteNonQuery();

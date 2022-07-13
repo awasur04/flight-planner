@@ -31,7 +31,7 @@ namespace FlightPlanning.UI
 
         private void closeAccountButton_Click(object sender, EventArgs e)
         {
-            if (PasswordHash.VerifyInputPassword(closeAccountPasswordTextBox.Text, currentUser.password))
+            if (PasswordHash.VerifyInputPassword(closeAccountPasswordTextBox.Text, currentUser.Password))
             {
                 db.DeleteUser(currentUser);
 
@@ -57,7 +57,7 @@ namespace FlightPlanning.UI
         {
             string message = "";
 
-            if (PasswordHash.VerifyInputPassword(passwordTextBox.Text, currentUser.password))
+            if (PasswordHash.VerifyInputPassword(passwordTextBox.Text, currentUser.Password))
             {
                 if (InputValidation.Email(emailTextBox1.Text))
                 {
@@ -65,7 +65,7 @@ namespace FlightPlanning.UI
                     {
                         emailTextBox1.ForeColor = Color.Black;
                         emailTextBox2.ForeColor = Color.Black;
-                        currentUser.email = emailTextBox1.Text;
+                        currentUser.Email = emailTextBox1.Text;
 
                         DialogResult dg = MessageBox.Show("Email changed successfully");
 
@@ -104,13 +104,13 @@ namespace FlightPlanning.UI
         private void passwordConfirmButton_Click(object sender, EventArgs e)
         {
             string message = "";
-            if (PasswordHash.VerifyInputPassword(currentPasswordTextBox.Text, currentUser.password))
+            if (PasswordHash.VerifyInputPassword(currentPasswordTextBox.Text, currentUser.Password))
             {
                 if (newPasswordTextBox1.Text == newPasswordTextBox2.Text)
                 {
                     if (InputValidation.Password(newPasswordTextBox1.Text))
                     {
-                        currentUser.password = PasswordHash.GetHashedPassword(newPasswordTextBox1.Text);
+                        currentUser.Password = PasswordHash.GetHashedPassword(newPasswordTextBox1.Text);
 
                         DialogResult dg = MessageBox.Show("Password changed successfully");
 

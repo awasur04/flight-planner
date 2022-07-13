@@ -32,12 +32,12 @@ namespace FlightPlanning.Logic
             {
                 User currentUser = acctDB.UserLogin(email);
                 
-                if (currentUser.name == "ERROR")
+                if (currentUser.Name == "ERROR")
                 {
                     return false;
                 }
 
-                if (PasswordHash.VerifyInputPassword(password, currentUser.password))
+                if (PasswordHash.VerifyInputPassword(password, currentUser.Password))
                 {
                     loggedInUser = currentUser;
                     return true;
